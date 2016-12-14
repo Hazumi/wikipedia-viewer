@@ -2,9 +2,9 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
 
 body {
-  background-color: #f8f8f8;
+  background-color: #fafafa;
   text-align: center;
-  font-size: 16px;
+  font-size: 17px;
 }
 
 h1 {
@@ -23,7 +23,38 @@ a, a:hover, a:active, a:visited {
   text-decoration: none;
 }
 
+#btn {
+  border: 1px #bbb solid;
+  border-radius: 0;
+  padding: 4px 8px;
+}
+
+#btn:hover {
+  background-color: #f8f8f8;
+}
+
+#search {
+  border: 1px #bbb solid;
+  border-radius: 0;
+  padding: 2px;
+}
+
+#form {
+  margin: 0.5em;
+}
+
+#list-container {
+  margin: 2em;
+  padding: 1.5em;
+}
+
 ul {
+  padding: 0;
   list-style-type: none;
-  background-color: #eee;
+  border: 1px #bbb solid;
+}
+
+ul li {
+  padding: 0.4em 2em;
+  background-color: #fff;
 }
