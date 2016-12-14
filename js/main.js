@@ -29,7 +29,7 @@ $(document).ready(function() {
             let title = data[1][i];
             let summary = data[2][i];
             let link = data[3][i];
-            app.$links.append(`<li><strong><a href="${link}">${title}</strong><p>${summary}</p></a></li>`);
+            app.$links.append(`<li><strong><a href="${link}" target='_blank'>${title}</strong><p>${summary}</p></a></li>`);
           }
         }
       });
