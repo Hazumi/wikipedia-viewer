@@ -1,6 +1,7 @@
-$(document).ready(function() {
-    console.log('test');
-});
+const $ = require('jquery');
+
+console.log('test');
+
 
 
 
