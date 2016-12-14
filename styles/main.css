@@ -1,6 +1,29 @@
 @charset 'utf-8';
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
 
 body {
   background-color: #f8f8f8;
   text-align: center;
+  font-size: 16px;
+}
+
+h1 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 2.4em;
+  letter-spacing: -1px;
+  color: #333;
+}
+
+h1 span {
+  font-weight: 700;
+}
+
+a, a:hover, a:active, a:visited {
+  color: #333;
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  background-color: #eee;
 }
