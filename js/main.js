@@ -1,43 +1,41 @@
 const $ = require('jquery');
 
-const app = {
-  init: function() {
-    this.cacheDom();
-    this.bindEvents();
-  },
-  cacheDom: function() {
-    this.$form = $('#form');
-    this.$search = $('#search');
-    this.$links = $('#links');
-  },
-  bindEvents: function() {
-    this.$form.submit(this.renderData);
-  },
-  renderData: function() {
-    let searchInput = app.$search.val();
-    let url = `https://en.wikipedia.org/w/api.php?action=opensearch&search=${searchInput}&format=json&callback=wikiCallback`;
-    app.$search.val('');
-    $.ajax({
-      url: url,
-      dataType: 'jsonp',
-      type: 'POST',
-      success: function(data) {
+$(document).ready(function() {
 
-        console.log(data);
-
-        for (var i = 0; i < data.length; i++) {
-          let title = data[1][i];
-          let summary = data[2][i].substring(0, 40);
-          let link = data[3][i];
+  const app = {
+    init: function() {
+      this.cacheDom();
+      this.bindEvents();
+    },
+    cacheDom: function() {
+      this.$form = $('#form');
+      this.$search = $('#search');
+      this.$links = $('#links');
+    },
+    bindEvents: function() {
+      this.$form.submit(this.renderData);
+    },
+    renderData: function() {
+      let searchInput = app.$search.val();
+      let url = `https://en.wikipedia.org/w/api.php?action=opensearch&search=${searchInput}&format=json&callback=wikiCallback`;
+      app.$links.html('');
+      app.$search.val('');
+      $.ajax({
+        url: url,
+        dataType: 'jsonp',
+        type: 'POST',
+        success: data => {
+          for (var i = 0; i < data[1].length; i++) {
+            let title = data[1][i];
+            let summary = data[2][i];
+            let link = data[3][i];
+            app.$links.append(`<li><strong><a href="${link}">${title}</strong><p>${summary}</p></a></li>`);
+          }
         }
+      });
+      return false;
+    }
+  };
 
-      }
-    });
-    return false;
-  }
-};
-
-app.init();
-
-// const result = $('#search').val();
-// var wikiUrl = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=' + result + '&format=json&callback=wikiCallback';
+  app.init();
+});
