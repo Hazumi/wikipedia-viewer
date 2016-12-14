@@ -1,11 +1,25 @@
 const $ = require('jquery');
 
-const loadData = () => {
-  console.log('test');
-  return false;
+const app = {
+  init: function() {
+    this.cacheDom();
+    this.bindEvents();
+  },
+  cacheDom: function() {
+    this.$form = $('#form');
+  },
+  bindEvents: function() {
+    this.$form.submit(this.render);
+  },
+  render: function() {
+
+      
+
+    return false;
+  }
 };
 
-$('#form').submit(loadData);
+app.init();
 
 // const result = $('#search').val();
 // var wikiUrl = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=' + result + '&format=json&callback=wikiCallback';
