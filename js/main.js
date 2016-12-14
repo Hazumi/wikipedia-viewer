@@ -7,16 +7,29 @@ const app = {
   },
   cacheDom: function() {
     this.$form = $('#form');
+    this.$search = $('#search');
   },
   bindEvents: function() {
-    this.$form.submit(this.render);
+    this.$form.submit(this.renderData);
   },
-  render: function() {
+  renderData: function() {
+    let searchInput = app.$search.val();
+    let url = `https://en.wikipedia.org/w/api.php?action=opensearch&search=${searchInput}&format=json&callback=wikiCallback`;
+    app.$search.val('');
 
-      
+    $.ajax({
+      url: url,
+      dataType: 'jsonp',
+      type: 'POST',
+      success: function(data) {
+        console.log(data);
+      }
 
-    return false;
-  }
+    });
+
+  return false;
+  },
+
 };
 
 app.init();
