@@ -25,7 +25,7 @@ $(document).ready(function() {
         dataType: 'jsonp',
         type: 'POST',
         success: data => {
-          for (var i = 0; i < data[1].length; i++) {
+          for (let i = 0; i < data[1].length; i++) {
             let title = data[1][i];
             let summary = data[2][i];
             let link = data[3][i];
